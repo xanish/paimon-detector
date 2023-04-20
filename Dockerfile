@@ -6,10 +6,9 @@ RUN  mkdir -p  /paimon-detector
 
 WORKDIR  /paimon-detector
 
-# RUN apt-get update && \
-#     apt-get install ffmpeg libsm6 libxext6 -y && \
-#     pip install --no-cache-dir -U pip
-RUN pip install --no-cache-dir -U pip
+RUN apt-get update && \
+    apt-get install ffmpeg libsm6 libxext6 -y && \
+    pip install --no-cache-dir -U pip
 
 COPY requirements.txt .
 
