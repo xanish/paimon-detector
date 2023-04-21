@@ -8,7 +8,7 @@ RESIZE_DIMENSIONS = (96, 96)
 
 
 def generate_processed_dataset():
-    wfu = Waifu(work_dir='data')
+    wfu = Waifu(work_dir='dataset')
     waifus = os.listdir(SRC_DIR)
 
     for waifu in sorted(waifus):
