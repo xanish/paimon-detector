@@ -2,6 +2,9 @@ import cv2
 import os
 import ulid
 
+from exceptions.face_not_detected import FaceNotDetected
+from exceptions.broken_image import BrokenImageException
+
 
 class Waifu:
     def __init__(self, work_dir, cascade_file='lbpcascade_animeface.xml', debug=False):
@@ -10,6 +13,7 @@ class Waifu:
 
         self.work_dir = work_dir
         self.debug = debug
+        self.debug_path = os.path.join(work_dir, 'debug')
         self.cascade = cv2.CascadeClassifier(cascade_file)
         self.faces = []
         self.resized_faces = []
@@ -29,7 +33,7 @@ class Waifu:
             )
 
             if len(faces) == 0:
-                raise ValueError(f"No face detected in {file}")
+                raise FaceNotDetected(file)
 
             for (x, y, w, h) in faces:
                 self.faces.append(image[y:y+h, x:x+w])
@@ -45,13 +49,16 @@ class Waifu:
 
             if self.debug:
                 # write the image as output
+                if not os.path.exists(self.debug_path):
+                    os.makedirs(self.debug_path)
+
                 debug_file = os.path.join(
-                    self.work_dir,
-                    f'debug/debug-{ulid.new().int}.jpg'
+                    self.debug_path,
+                    f'debug-{ulid.new().int}.jpg'
                 )
                 cv2.imwrite(debug_file, image)
         else:
-            raise ValueError(f"Broken image {file}")
+            raise BrokenImageException(file)
 
         return self
 

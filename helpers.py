@@ -33,3 +33,17 @@ def download_image(url: str, save_dir: str) -> str:
         cv2.imwrite(f'{file}.jpg', image)
 
     return f'{file}.jpg'
+
+
+def resize_image(file):
+    if not os.path.exists(file):
+        raise FileNotFoundError("Could not find file to resize")
+
+    image = cv2.imread(file)
+    image = cv2.resize(
+        image,
+        (96, 96),
+        interpolation=cv2.INTER_AREA
+    )
+
+    return image
