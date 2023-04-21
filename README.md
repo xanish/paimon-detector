@@ -46,11 +46,16 @@ Will contain an item for each detected face in the image
 
 ## Training results
 
-- Epoch 1: loss: 0.6575 - accuracy: 0.5622 - val_loss: 0.6494 - val_accuracy: 0.5800
-- Epoch 2: loss: 0.5668 - accuracy: 0.7164 - val_loss: 0.5070 - val_accuracy: 0.7400
-- Epoch 3: loss: 0.3766 - accuracy: 0.8557 - val_loss: 0.3863 - val_accuracy: 0.7800
-- Epoch 4: loss: 0.3228 - accuracy: 0.8706 - val_loss: 0.4574 - val_accuracy: 0.7200
-- Epoch 5: loss: 0.3144 - accuracy: 0.8756 - val_loss: 0.2726 - val_accuracy: 0.8600
+- Epoch 01: loss: 0.7328 - accuracy: 0.5698 - val_loss: 0.7520 - val_accuracy: 0.4884
+- Epoch 02: loss: 0.6573 - accuracy: 0.5756 - val_loss: 0.6219 - val_accuracy: 0.8605
+- Epoch 03: loss: 0.5537 - accuracy: 0.8488 - val_loss: 0.4925 - val_accuracy: 0.7674
+- Epoch 04: loss: 0.3847 - accuracy: 0.9012 - val_loss: 0.3806 - val_accuracy: 0.8140
+- Epoch 05: loss: 0.2630 - accuracy: 0.9070 - val_loss: 0.2487 - val_accuracy: 0.8605
+- Epoch 06: loss: 0.2311 - accuracy: 0.9244 - val_loss: 0.1846 - val_accuracy: 0.9302
+- Epoch 07: loss: 0.1646 - accuracy: 0.9593 - val_loss: 0.1628 - val_accuracy: 0.9302
+- Epoch 08: loss: 0.1503 - accuracy: 0.9477 - val_loss: 0.1206 - val_accuracy: 0.9767
+- Epoch 09: loss: 0.1110 - accuracy: 0.9709 - val_loss: 0.1470 - val_accuracy: 0.9302
+- Epoch 10: loss: 0.0973 - accuracy: 0.9709 - val_loss: 0.1195 - val_accuracy: 0.9767
 
 ## Improvements
 
