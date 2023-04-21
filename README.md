@@ -39,9 +39,22 @@ Will contain an item for each detected face in the image
 
 - [Genshin impact heads](https://www.kaggle.com/datasets/honchokomodo/genshin-impact-heads)
 - [Anime character face dataset](https://www.kaggle.com/datasets/thedevastator/anime-face-dataset-by-character-name)
+- Some handpicked images from google
+
+## Training results
+
+- Epoch 01: loss: 0.7451 - accuracy: 0.5224 - val_loss: 0.6945 - val_accuracy: 0.4600
+- Epoch 02: loss: 0.6538 - accuracy: 0.5522 - val_loss: 0.6153 - val_accuracy: 0.5800
+- Epoch 03: loss: 0.5546 - accuracy: 0.7015 - val_loss: 0.5308 - val_accuracy: 0.8600
+- Epoch 04: loss: 0.4264 - accuracy: 0.8557 - val_loss: 0.4412 - val_accuracy: 0.7600
+- Epoch 05: loss: 0.2875 - accuracy: 0.9055 - val_loss: 0.2435 - val_accuracy: 0.9000
+- Epoch 06: loss: 0.1818 - accuracy: 0.9353 - val_loss: 0.3181 - val_accuracy: 0.8800
+- Epoch 07: loss: 0.2242 - accuracy: 0.9204 - val_loss: 0.4449 - val_accuracy: 0.8400
+- Epoch 08: loss: 0.2087 - accuracy: 0.9254 - val_loss: 0.1941 - val_accuracy: 0.9600
+- Epoch 09: loss: 0.1031 - accuracy: 0.9751 - val_loss: 0.2222 - val_accuracy: 0.9200
+- Epoch 10: loss: 0.0915 - accuracy: 0.9751 - val_loss: 0.1607 - val_accuracy: 0.9200
 
 ## Improvements
 
 - Preferably more training data
-- Maybe find an alternative to lbpcascade_animeface, since on testing it doesn't seem to be as good in detecting faces
 - Detect more characters?
