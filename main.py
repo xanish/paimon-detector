@@ -38,16 +38,17 @@ async def image_has_paimon(url: str = None):
 
     # download and save the image for processing
     file = helpers.download_image(url, TEMP_DIR)
-    faces = []
+    faces, faces_detected = [], False
 
     try:
-        waifu = Waifu(work_dir='dataset')
+        waifu = Waifu(work_dir='dataset', debug=True)
 
         # extract faces from image
         faces = (waifu
                  .detect_faces(file)
                  .resize_faces(RESIZE_DIMENSIONS)
                  .get_faces())
+        faces_detected = True
     except FaceNotDetected as fnd:
         # this is super messy (find a way to clean it up)
         # just need a fallback to force predict even if
@@ -75,7 +76,7 @@ async def image_has_paimon(url: str = None):
     if os.path.isfile(file):
         os.remove(file)
 
-    return predictions
+    return {"faces_detected": faces_detected, "results": predictions}
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000))

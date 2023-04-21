@@ -30,9 +30,12 @@ curl --location --request GET 'http://localhost:8000/has-paimon?url=https://exam
 Will contain an item for each detected face in the image
 
 ```json
-[
-  { "possible":"paimon", "chances": 93.1159257888794 }
-]
+{
+  "faces_detected":true,
+  "results":[
+    { "possible": "not_paimon", "chances": 99.98887777328491 }
+  ]
+}
 ```
 
 ## Datasets
@@ -43,16 +46,11 @@ Will contain an item for each detected face in the image
 
 ## Training results
 
-- Epoch 01: loss: 0.7451 - accuracy: 0.5224 - val_loss: 0.6945 - val_accuracy: 0.4600
-- Epoch 02: loss: 0.6538 - accuracy: 0.5522 - val_loss: 0.6153 - val_accuracy: 0.5800
-- Epoch 03: loss: 0.5546 - accuracy: 0.7015 - val_loss: 0.5308 - val_accuracy: 0.8600
-- Epoch 04: loss: 0.4264 - accuracy: 0.8557 - val_loss: 0.4412 - val_accuracy: 0.7600
-- Epoch 05: loss: 0.2875 - accuracy: 0.9055 - val_loss: 0.2435 - val_accuracy: 0.9000
-- Epoch 06: loss: 0.1818 - accuracy: 0.9353 - val_loss: 0.3181 - val_accuracy: 0.8800
-- Epoch 07: loss: 0.2242 - accuracy: 0.9204 - val_loss: 0.4449 - val_accuracy: 0.8400
-- Epoch 08: loss: 0.2087 - accuracy: 0.9254 - val_loss: 0.1941 - val_accuracy: 0.9600
-- Epoch 09: loss: 0.1031 - accuracy: 0.9751 - val_loss: 0.2222 - val_accuracy: 0.9200
-- Epoch 10: loss: 0.0915 - accuracy: 0.9751 - val_loss: 0.1607 - val_accuracy: 0.9200
+- Epoch 1: loss: 0.6575 - accuracy: 0.5622 - val_loss: 0.6494 - val_accuracy: 0.5800
+- Epoch 2: loss: 0.5668 - accuracy: 0.7164 - val_loss: 0.5070 - val_accuracy: 0.7400
+- Epoch 3: loss: 0.3766 - accuracy: 0.8557 - val_loss: 0.3863 - val_accuracy: 0.7800
+- Epoch 4: loss: 0.3228 - accuracy: 0.8706 - val_loss: 0.4574 - val_accuracy: 0.7200
+- Epoch 5: loss: 0.3144 - accuracy: 0.8756 - val_loss: 0.2726 - val_accuracy: 0.8600
 
 ## Improvements
 
