@@ -3,9 +3,8 @@ import json
 import imageio
 import numpy as np
 import os
-import random
-import time
 import tensorflow as tf
+import ulid
 import urllib
 
 from fastapi import FastAPI, HTTPException
@@ -49,9 +48,7 @@ async def image_has_paimon(url: str = None):
     img_data = urllib.request.urlopen(request).read()
     image = Image.open(BytesIO(img_data))
 
-    file = os.path.join(
-        TEMP_DIR, f'base-{time.time()}-{random.randint(0, 1000)}'
-    )
+    file = os.path.join(TEMP_DIR, f'base-{ulid.new().int}')
     if not os.path.exists(TEMP_DIR):
         os.makedirs(TEMP_DIR)
 

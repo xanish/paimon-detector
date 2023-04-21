@@ -1,7 +1,6 @@
-import os
-import random
-import time
 import cv2
+import os
+import ulid
 
 
 class Waifu:
@@ -48,7 +47,7 @@ class Waifu:
                 # write the image as output
                 debug_file = os.path.join(
                     self.work_dir,
-                    f'debug/debug-{time.time()}-{random.randint(0, 1000)}.jpg'
+                    f'debug/debug-{ulid.new().int}.jpg'
                 )
                 cv2.imwrite(debug_file, image)
         else:
