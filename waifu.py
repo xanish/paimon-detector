@@ -24,9 +24,9 @@ class Waifu:
             gray = cv2.equalizeHist(gray)
             faces = self.cascade.detectMultiScale(
                 gray,
-                scaleFactor=1.1,
-                minNeighbors=5,
-                minSize=(24, 24)
+                scaleFactor=1.01,
+                minNeighbors=3,
+                minSize=(20, 20)
             )
 
             if len(faces) == 0:
@@ -47,7 +47,7 @@ class Waifu:
             if self.debug:
                 # write the image as output
                 debug_file = os.path.join(
-                    self.workdir,
+                    self.work_dir,
                     f'debug/debug-{time.time()}-{random.randint(0, 1000)}.jpg'
                 )
                 cv2.imwrite(debug_file, image)
