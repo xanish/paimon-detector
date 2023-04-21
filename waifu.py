@@ -75,8 +75,8 @@ class Waifu:
         if not os.path.exists(base_path):
             os.makedirs(base_path)
 
-        for i, face in enumerate(faces):
-            cv2.imwrite(os.path.join(base_path, f'{name}.jpg'), face)
+        for i, face in enumerate(faces, start=1):
+            cv2.imwrite(os.path.join(base_path, f'{name}-{i}.jpg'), face)
 
     def get_faces(self):
         return self.resized_faces if len(self.resized_faces) > 0 else self.faces

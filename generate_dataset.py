@@ -14,7 +14,7 @@ def generate_processed_dataset():
     for waifu in sorted(waifus):
         waifu_images = os.listdir(os.path.join(SRC_DIR, waifu))
 
-        for i, waifu_img in enumerate(sorted(waifu_images)):
+        for i, waifu_img in enumerate(sorted(waifu_images), start=1):
             image = os.path.join(SRC_DIR, waifu, waifu_img)
             try:
                 (wfu.detect_faces(image)
