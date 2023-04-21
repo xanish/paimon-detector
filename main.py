@@ -41,7 +41,7 @@ async def image_has_paimon(url: str = None):
     faces, faces_detected = [], False
 
     try:
-        waifu = Waifu(work_dir='dataset', debug=True)
+        waifu = Waifu(work_dir='dataset')
 
         # extract faces from image
         faces = (waifu
