@@ -2,9 +2,9 @@ import json
 import numpy as np
 import os
 import tensorflow as tf
-from exceptions.face_not_detected import FaceNotDetected
 import helpers
 
+from exceptions.face_not_detected import FaceNotDetected
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from uvicorn import run
@@ -70,6 +70,10 @@ async def image_has_paimon(url: str = None):
             "possible": CLASS_NAMES[np.argmax(score)],
             "chances": 100 * np.max(score)
         })
+
+    # clean up
+    if os.path.isfile(file):
+        os.remove(file)
 
     return predictions
 
