@@ -21,18 +21,22 @@ def download_image(url: str, save_dir: str) -> str:
 
     img_data = urllib.request.urlopen(request).read()
     image = Image.open(BytesIO(img_data))
+    gif_name, jpg_name = f'{file}.gif', f'{file}.jpg'
 
     # convert gif to jpeg
     if image.format == 'GIF':
-        open(f'{file}.gif', 'wb+').write(img_data)
-        frames = imageio.mimread(f'{file}.gif')
-        cv2.imwrite(f'{file}.jpg', cv2.cvtColor(frames[0], cv2.COLOR_RGB2BGR))
+        open(gif_name, 'wb+').write(img_data)
+        frames = imageio.mimread(gif_name)
+        cv2.imwrite(jpg_name, cv2.cvtColor(frames[0], cv2.COLOR_RGB2BGR))
     else:
         img_array = np.asarray(bytearray(img_data), dtype=np.uint8)
         image = cv2.imdecode(img_array, -1)
-        cv2.imwrite(f'{file}.jpg', image)
+        cv2.imwrite(jpg_name, image)
 
-    return f'{file}.jpg'
+    if os.path.isfile(gif_name):
+        os.remove(gif_name)
+
+    return jpg_name
 
 
 def resize_image(file):
